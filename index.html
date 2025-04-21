@@ -7,7 +7,6 @@
     <meta name="theme-color" content="#4f46e5" />
     <title>TaskMaster</title>
     <style>
-      /* Global Styles */
       * {
         margin: 0;
         padding: 0;
@@ -16,176 +15,149 @@
 
       body {
         font-family: 'Inter', sans-serif;
-        background-color: #f5f5f5;
-        color: #333;
-        transition: background-color 0.3s ease, color 0.3s ease;
-        padding: 20px;
+        background-color: #f9fafb;
+        color: #1f2937;
+        transition: all 0.3s ease;
+        padding: 40px 20px;
         min-height: 100vh;
-      }
-
-      .dark body {
-        background-color: #121212;
-        color: #f5f5f5;
-      }
-
-      h1, h2, h3, h4, h5, h6 {
-        font-weight: 600;
-      }
-
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
-
-      /* Smooth Scroll */
-      html {
-        scroll-behavior: smooth;
-      }
-
-      /* Loading Spinner */
-      #root {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
         align-items: center;
-        height: 80vh;
-        font-size: 2rem;
+        gap: 2rem;
+      }
+
+      header {
+        text-align: center;
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      header h1 {
+        font-size: 3rem;
+        font-weight: 800;
         color: #4f46e5;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      header nav {
+        margin-top: 10px;
+        font-size: 1.2rem;
         font-weight: 600;
-        text-transform: uppercase;
+        color: #4f46e5;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
       }
 
-      /* Aesthetic Backgrounds */
-      .bg-primary {
-        background: linear-gradient(135deg, #6ee7b7 0%, #3b82f6 100%);
+      .task-card {
+        background: #ffffff;
+        padding: 30px 40px;
+        border-radius: 16px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        width: 100%;
+        text-align: center;
+        animation: slideUp 1s ease;
       }
 
-      .bg-dark-primary {
-        background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      .task-card h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #4f46e5;
+        margin-bottom: 10px;
       }
 
-      /* Smooth Animations */
-      .transition-colors {
-        transition: background-color 0.3s ease, color 0.3s ease;
+      .task-card p {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
       }
 
-      /* Button Styles */
+      .task-card span {
+        font-weight: 600;
+        color: #ef4444;
+      }
+
       .btn {
+        margin-top: 20px;
         padding: 12px 24px;
         font-size: 1rem;
-        border-radius: 8px;
+        font-weight: 600;
         border: none;
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.2s ease;
-      }
-
-      .btn-primary {
+        border-radius: 8px;
         background-color: #4f46e5;
         color: white;
+        cursor: pointer;
+        transition: transform 0.2s ease, background-color 0.3s ease;
       }
 
-      .btn-primary:hover {
+      .btn:hover {
         background-color: #4338ca;
         transform: scale(1.05);
       }
 
-      /* Modal and Container Styles */
-      .modal-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.5);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        opacity: 0;
-        transition: opacity 0.3s ease;
+      footer {
+        margin-top: 30px;
+        font-weight: 500;
+        color: #4f46e5;
       }
 
-      .modal-overlay.active {
-        opacity: 1;
-      }
-
-      .modal-container {
-        background: #fff;
-        padding: 30px;
-        border-radius: 12px;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        max-width: 400px;
-        width: 100%;
-      }
-
-      /* Cards */
-      .card {
-        background-color: #ffffff;
-        border-radius: 12px;
-        padding: 24px;
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        margin: 20px 0;
-      }
-
-      .card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-      }
-
-      .card-title {
-        font-size: 1.5rem;
-        font-weight: 600;
-        color: #333;
-        margin-bottom: 10px;
-      }
-
-      .card-text {
-        color: #666;
-        font-size: 1.1rem;
-      }
-
-      /* Light / Dark mode */
-      .dark .card {
-        background-color: #1f2937;
-        color: #e5e7eb;
-      }
-
-      .dark .btn-primary {
-        background-color: #1c1c1c;
-        color: #f5f5f5;
-      }
-
-      /* Responsive Styles */
-      @media (max-width: 768px) {
-        body {
-          padding: 15px;
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
         }
-        #root {
-          font-size: 1.5rem;
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
-        .card {
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 600px) {
+        header h1 {
+          font-size: 2rem;
+        }
+        .task-card {
           padding: 20px;
         }
-      }
-
-      @media (max-width: 480px) {
-        .btn {
-          font-size: 0.9rem;
-          padding: 10px 20px;
-        }
-
-        .card-title {
-          font-size: 1.25rem;
-        }
-
-        .card-text {
-          font-size: 1rem;
+        .task-card h2 {
+          font-size: 1.5rem;
         }
       }
     </style>
   </head>
   <body class="transition-colors">
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div class="text-center p-8" id="root">Loading...</div>
+    <header>
+      <h1>📝 TASK MANAGER</h1>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">Add Task</a>
+        <a href="#">All Tasks</a>
+        <a href="#">Profile</a>
+      </nav>
+    </header>
+
+    <section class="task-card">
+      <h2>Today's Tasks</h2>
+      <p><strong>Complete Project</strong></p>
+      <p>Due: <span>2025-04-21</span></p>
+      <button class="btn">Done</button>
+    </section>
+
+    <footer>© 2025 TASK MANAGER</footer>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
