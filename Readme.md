@@ -39,7 +39,7 @@ This project reflects everything I’ve learned in modern frontend development i
 
 ## 🖥️ Screenshots
 
-> (![Screenshot 2025-04-21 201100](https://github.com/user-attachments/assets/1731676c-bf16-4e2b-ab26-a4d545622995))
+> ![Screenshot 2025-04-21 201100](https://github.com/user-attachments/assets/1731676c-bf16-4e2b-ab26-a4d545622995)
 
 ---
 
