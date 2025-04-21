@@ -40,4 +40,4 @@ This project reflects everything I’ve learned in modern frontend development i
 ## 🔗 Live Link & Repository
 
 - **GitHub Repo:** [GitHub - TaskMaster](https://github.com/Samarth1-glitch/DailyTaskManager)  
-- **Live Site:** [View on Vercel](https://your-vercel-project-url.vercel.app)
+- **Live Site:** [View on Vercel](https://daily-task-manager-7k37.vercel.app/)
