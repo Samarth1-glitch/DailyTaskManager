@@ -13,11 +13,14 @@
         padding: 0;
         box-sizing: border-box;
       }
+
       body {
         font-family: 'Inter', sans-serif;
         background-color: #f5f5f5;
         color: #333;
         transition: background-color 0.3s ease, color 0.3s ease;
+        padding: 20px;
+        min-height: 100vh;
       }
 
       .dark body {
@@ -44,10 +47,11 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh;
-        font-size: 1.5rem;
+        height: 80vh;
+        font-size: 2rem;
         color: #4f46e5;
         font-weight: 600;
+        text-transform: uppercase;
       }
 
       /* Aesthetic Backgrounds */
@@ -66,12 +70,12 @@
 
       /* Button Styles */
       .btn {
-        padding: 10px 20px;
+        padding: 12px 24px;
         font-size: 1rem;
         border-radius: 8px;
         border: none;
         cursor: pointer;
-        transition: background-color 0.3s ease;
+        transition: background-color 0.3s ease, transform 0.2s ease;
       }
 
       .btn-primary {
@@ -81,6 +85,7 @@
 
       .btn-primary:hover {
         background-color: #4338ca;
+        transform: scale(1.05);
       }
 
       /* Modal and Container Styles */
@@ -104,9 +109,9 @@
 
       .modal-container {
         background: #fff;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         max-width: 400px;
         width: 100%;
       }
@@ -115,25 +120,27 @@
       .card {
         background-color: #ffffff;
         border-radius: 12px;
-        padding: 20px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 24px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
+        margin: 20px 0;
       }
 
       .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        transform: translateY(-10px);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
       }
 
       .card-title {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
         font-weight: 600;
         color: #333;
+        margin-bottom: 10px;
       }
 
       .card-text {
         color: #666;
-        font-size: 1rem;
+        font-size: 1.1rem;
       }
 
       /* Light / Dark mode */
@@ -150,10 +157,28 @@
       /* Responsive Styles */
       @media (max-width: 768px) {
         body {
-          padding: 20px;
+          padding: 15px;
         }
         #root {
-          font-size: 1.2rem;
+          font-size: 1.5rem;
+        }
+        .card {
+          padding: 20px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .btn {
+          font-size: 0.9rem;
+          padding: 10px 20px;
+        }
+
+        .card-title {
+          font-size: 1.25rem;
+        }
+
+        .card-text {
+          font-size: 1rem;
         }
       }
     </style>
